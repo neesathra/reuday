@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#263d31" />
+  <meta name="description" content="A little garden of memories, love, and all the chapters still waiting for us." />
+  <title>Chapter 22: Still Growing With You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #263d31;
+      --moss: #657b61;
+      --sage: #aab69c;
+      --cream: #f7f3e9;
+      --paper: #fffdf7;
+      --blush: #d9b9ae;
+      --ink: #354438;
+      --muted: #788477;
+      --gold: #c6a66b;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--cream);
+      font-family: "DM Sans", sans-serif; font-weight: 300;
+      overflow-x: hidden;
+    }
+    button { font: inherit; }
+    .intro {
+      min-height: 100svh; display: grid; place-items: center; text-align: center;
+      padding: 34px 22px; position: relative; overflow: hidden; color: var(--cream);
+      background: linear-gradient(145deg, rgba(23,48,36,.94), rgba(57,78,56,.88)),
+        radial-gradient(ellipse at 50% 0%, #9aab7f, transparent 60%);
+    }
+    .intro::before, .intro::after {
+      content: "✿"; position: absolute; color: rgba(231,220,190,.17);
+      font-size: clamp(150px, 30vw, 330px); line-height: 1;
+    }
+    .intro::before { left: -55px; top: -55px; transform: rotate(-25deg); }
+    .intro::after { right: -65px; bottom: -80px; transform: rotate(25deg); }
+    .intro-inner { max-width: 760px; position: relative; z-index: 1; }
+    .eyebrow { letter-spacing: .28em; text-transform: uppercase; font-size: .68rem; color: #d8c9a7; }
+    h1, h2, h3 { font-family: "Cormorant Garamond", serif; font-weight: 500; }
+    .intro h1 { font-size: clamp(3.3rem, 9vw, 7.2rem); line-height: .92; margin: 24px 0 18px; }
+    .intro h1 span { display: block; color: #e5c9bd; font-style: italic; }
+    .intro p { font-size: .92rem; letter-spacing: .06em; color: #e7e4d8; line-height: 1.8; }
+    .enter-btn, .read-btn {
+      border: 1px solid rgba(238,225,198,.65); background: transparent; color: #fffaf0;
+      padding: 14px 25px; border-radius: 999px; cursor: pointer; margin-top: 25px;
+      letter-spacing: .12em; text-transform: uppercase; font-size: .68rem;
+      transition: .3s ease;
+    }
+    .enter-btn:hover, .read-btn:hover { background: var(--cream); color: var(--forest); transform: translateY(-3px); }
+    .tiny-flower { color: #dfc69b; font-size: 1.4rem; margin-top: 28px; }
+    #garden { display: none; }
+    #garden.visible { display: block; animation: appear 1s ease both; }
+    @keyframes appear { from {opacity:0; transform:translateY(12px)} to {opacity:1; transform:none} }
+    .hero {
+      min-height: 78vh; display: grid; place-items: center; text-align: center;
+      padding: 85px 22px; position: relative; overflow: hidden;
+      background: linear-gradient(rgba(28,52,38,.52), rgba(28,52,38,.68)),
+        url("assets/our-photo.png") center 39% / cover;
+      color: #fffaf0;
+    }
+    .hero-content { max-width: 780px; }
+    .hero .eyebrow { color: #ead9b9; }
+    .hero h2 { font-size: clamp(3.5rem, 9vw, 7rem); line-height: .9; margin: 25px 0 15px; }
+    .hero h2 em { color: #edcfc3; font-weight: 400; }
+    .hero .subtitle { font-size: .9rem; letter-spacing: .13em; }
+    .scroll-note { margin-top: 65px; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: #eee5d2; }
+    .section { padding: 88px 22px; }
+    .section-inner { width: min(100%, 980px); margin: auto; }
+    .section-heading { text-align: center; margin-bottom: 40px; }
+    .section-heading .eyebrow { color: var(--moss); }
+    .section-heading h2 { font-size: clamp(2.7rem, 6vw, 4.5rem); color: var(--forest); margin: 12px 0 8px; }
+    .section-heading p { color: var(--muted); font-size: .85rem; line-height: 1.8; }
+    .photo-frame {
+      width: min(100%, 650px); margin: auto; padding: 13px; background: var(--paper);
+      box-shadow: 0 22px 65px rgba(48,62,45,.13); transform: rotate(-1deg);
+      border: 1px solid #e7e0d2;
+    }
+    .photo-frame img { width: 100%; height: auto; display: block; }
+    .photo-caption { text-align: center; font-family: "Parisienne", cursive; font-size: 2rem; color: var(--moss); margin: 26px 0 0; }
+    .music-section { background: #e9ecdf; }
+    .music-card {
+      max-width: 660px; margin: auto; padding: 34px; text-align: center;
+      background: rgba(255,253,247,.8); border: 1px solid #d8dfd0;
+      box-shadow: 0 15px 45px rgba(47,67,48,.07);
+    }
+    .music-card .flower { font-size: 2rem; color: var(--moss); }
+    .music-card h3 { font-size: 2.5rem; color: var(--forest); margin: 10px 0 0; }
+    .music-card p { color: var(--muted); font-size: .82rem; margin: 4px 0 24px; }
+    .spotify-wrap { max-width: 520px; margin: auto; }
+    .spotify-wrap iframe { width: 100%; height: 152px; border: 0; border-radius: 12px; }
+    .letter-section { background: #f4efe5; }
+    .letter {
+      max-width: 760px; margin: auto; padding: clamp(28px, 6vw, 66px);
+      background: var(--paper); position: relative; box-shadow: 0 20px 70px rgba(65,60,43,.10);
+      border: 1px solid #e8dfcf;
+    }
+    .letter::before {
+      content: "✿"; position: absolute; top: 18px; right: 25px;
+      font-size: 2rem; color: #c7cdbb; opacity: .8;
+    }
+    .letter-top { text-align: center; border-bottom: 1px solid #e7dfd1; padding-bottom: 24px; margin-bottom: 30px; }
+    .letter-top .eyebrow { color: var(--moss); }
+    .letter-top h2 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; color: var(--forest); margin: 14px 0 5px; }
+    .letter-top p { font-family: "Parisienne", cursive; font-size: 1.6rem; color: var(--blush); margin: 0; }
+    .letter-body { font-family: "Cormorant Garamond", serif; font-size: clamp(1.15rem, 2.3vw, 1.38rem); line-height: 1.72; color: #4c594c; }
+    .letter-body p { margin: 0 0 22px; }
+    .letter-body .salutation { font-size: 1.55rem; color: var(--forest); }
+    .signature { font-family: "Parisienne", cursive; font-size: 2.2rem; color: var(--moss); line-height: 1.2; margin-top: 8px; }
+    .closing {
+      text-align: center; padding: 90px 22px 100px; color: #f8f3e8;
+      background: var(--forest); position: relative; overflow: hidden;
+    }
+    .closing .eyebrow { color: #d8c9a7; }
+    .closing h2 { font-size: clamp(3rem, 8vw, 6rem); line-height: .98; margin: 20px auto; max-width: 800px; }
+    .closing h2 em { color: #e7c7bb; }
+    .closing p { color: #e2e3d8; font-size: .88rem; line-height: 1.8; }
+    .closing .signature { color: #e7c7bb; font-size: 2.5rem; }
+    footer { background: #1c3026; color: #b9c1b1; text-align: center; padding: 18px; font-size: .65rem; letter-spacing: .12em; }
+    .petal {
+      position: fixed; top: -30px; z-index: 5; pointer-events: none; color: #e6c7ba;
+      opacity: .75; animation: fall linear forwards;
+    }
+    @keyframes fall { to { transform: translateY(110vh) rotate(480deg); opacity: 0; } }
+    @media (max-width: 600px) {
+      .section { padding: 65px 17px; }
+      .music-card { padding: 26px 17px; }
+      .letter { padding: 30px 23px; }
+      .hero { min-height: 72vh; background-position: 52% center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <section class="intro" id="intro">
+    <div class="intro-inner">
+      <div class="eyebrow">A little garden made just for you</div>
+      <h1>Chapter 22:<span>Still Growing<br>With You</span></h1>
+      <p>For the boy who keeps blooming into someone wonderful.<br>A birthday love letter, from me to you.</p>
+      <button class="enter-btn" id="enterButton">Step into our garden&nbsp; ✿</button>
+      <div class="tiny-flower">❀</div>
+    </div>
+  </section>
+
+  <main id="garden">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">November · A new chapter begins</div>
+        <h2>Happy 22nd<br><em>Birthday, Mahal.</em></h2>
+        <div class="subtitle">A lifetime of growing, one chapter at a time.</div>
+        <div class="scroll-note">Scroll gently · there's a letter for you ↓</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">A moment in our little universe</div>
+          <h2>Us, in bloom</h2>
+          <p>Of all the places life could have taken us,<br>I'm glad our stories found each other.</p>
+        </div>
+        <div class="photo-frame">
+          <img src="assets/our-photo.png" alt="A collection of sweet photographs of us together in a sunlit garden">
+        </div>
+        <div class="photo-caption">my favorite person, in every season ♡</div>
+      </div>
+    </section>
+
+    <section class="section music-section">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">Press play, think of us</div>
+          <h2>Our little soundtrack</h2>
+          <p>For the moments when the world gets quiet<br>and it's just you and me.</p>
+        </div>
+        <div class="music-card">
+          <div class="flower">❀</div>
+          <h3>Palayo Sa Mundo</h3>
+          <p>Jolianne &amp; Arthur Nery</p>
+          <div class="spotify-wrap">
+            <iframe title="Palayo Sa Mundo on Spotify" src="https://open.spotify.com/embed/album/7qVzxGZdXhtNHai0fGB9uj?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section letter-section" id="letter">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">A letter from my heart</div>
+          <h2>To my pahinga</h2>
+          <p>Some things deserve more than a greeting.<br>So, here's a little piece of my heart.</p>
+        </div>
+        <article class="letter">
+          <div class="letter-top">
+            <div class="eyebrow">November · Chapter 22</div>
+            <h2>Still Growing With You</h2>
+            <p>for my favorite person ♡</p>
+          </div>
+          <div class="letter-body">
+            <p class="salutation">Happy 22nd birthday to the very special man in my life, my soulmate, and my pahinga. ♡</p>
+
+            <p>I'm glad to have witnessed your growth and transformation from a 9th grader into the dedicated 4th-year Agriculture student you are today. Sometimes, I find myself wondering how we went from then to now. It feels like everything happened so quickly yet so slowly at the same time. We've come a long way, and when I look back at all the years that have passed, I can't help but feel grateful that we got to grow alongside each other. We've seen different versions of ourselves, experienced countless changes, and gone through different chapters of life, yet here we are, still connected by the love we've shared all these years.</p>
+
+            <p>I don't know what lies ahead of us or what life has in store for the both of us, but one thing I'm certain of is that I'm willing to go against all odds to make things work. I know that growing together won't always be easy, and there will be days when life gets difficult, but I hope we continue to find our way back to each other through it all. I want us to be there for the milestones, the little victories, and even the moments when things don't go as planned. I hope we get to witness more of each other's growth and become the people we've always dreamed of being. More than anything, I hope we get to make all those little plans and dreams come true together. I'm looking forward to the day when we can finally say that we made it, that we were able to overcome everything life put us through, and that we became each other's end game.</p>
+
+            <p>I am, and will always be, proud of you and everything you aspire to achieve. I hope you never doubt how much I admire your dedication and the effort you put into building the future you want for yourself. I will always be happy to see you shine, find your own way, and accomplish the things you've worked so hard for. Even when things get overwhelming, I hope you remember that you have someone who believes in you and will always be rooting for you. Just as you continue to support me in pursuing my own dreams, I want to be there to support yours, too. I may not always have the right words to express how proud I am, but please know that I'll never get tired of celebrating your achievements, no matter how big or small they may be.</p>
+
+            <p>As you enter another year of your life, I hope you give yourself enough credit for how far you've come. I hope this year brings you more opportunities, answered prayers, meaningful experiences, and reasons to be happy. May you never lose the passion to pursue the things that make you happy, and may you always find the courage to keep going even when the road gets difficult. You deserve all the good things that life has to offer, and I genuinely wish to see you receive them. I hope you enjoy this beautiful day of yours because that's exactly what you deserve. I wish I could give you all the happiness in the world, but for now, I hope this little reminder makes you feel just how loved and appreciated you are. Thank you for being part of my life and for allowing me to be part of yours. Of all the things that have changed throughout the years, I'm grateful that we still have each other.</p>
+
+            <p>Here's to more birthdays, more memories, more dreams to accomplish, and more years of growing together. I don't know exactly where life will take us, but I hope that wherever we end up, we'll still be choosing each other.</p>
+
+            <p>Mahal na mahal kita. Happy 22nd birthday, mahal ko!</p>
+            <p class="signature">Always yours,<br>Neiza ♡</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="eyebrow">And the story continues</div>
+      <h2>Here's to every<br><em>chapter still to come.</em></h2>
+      <p>More birthdays. More memories. More dreams.<br>More of you, more of me, and more of us.</p>
+      <div class="signature">I choose you, always. ♡</div>
+      <div class="tiny-flower">✿</div>
+    </section>
+    <footer>MADE WITH LOVE · FOR YOU, ALWAYS · CHAPTER 22</footer>
+  </main>
+
+  <script>
+    const enterButton = document.getElementById("enterButton");
+    const intro = document.getElementById("intro");
+    const garden = document.getElementById("garden");
+
+    enterButton.addEventListener("click", () => {
+      intro.style.display = "none";
+      garden.classList.add("visible");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      petals();
+    });
+
+    function petals() {
+      const symbols = ["✿", "❀", "✾"];
+      let count = 0;
+      const interval = setInterval(() => {
+        if (count >= 24) { clearInterval(interval); return; }
+        const petal = document.createElement("span");
+        petal.className = "petal";
+        petal.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.fontSize = (12 + Math.random() * 15) + "px";
+        petal.style.animationDuration = (7 + Math.random() * 6) + "s";
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 14000);
+        count++;
+      }, 450);
+    }
+  </script>
+</body>
+</html>
